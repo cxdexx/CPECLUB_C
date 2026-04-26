@@ -4,7 +4,7 @@
 
 ## Programs
 
-### 1. `solver.c` — Cramer's Rule Linear System Solver
+### 1. `Linear_Algebra.c` — Cramer's Rule Linear System Solver
 
 Solves a 2×2 system of linear equations of the form:
 
@@ -17,7 +17,7 @@ The user supplies the six coefficients (`a, b, c, d, e, f`). The program compute
 
 **Build & run:**
 ```bash
-gcc solver.c -o solver
+gcc Linear_Algebra.c -o solver
 ./solver
 ```
 
@@ -61,7 +61,7 @@ gcc even_odd.c -o even_odd
 ## Compile All at Once
 
 ```bash
-gcc solver.c   -o solver
+gcc Linear_Algebra.c   -o solver
 gcc calculator.c -o calculator
 gcc even_odd.c -o even_odd
 ```
