@@ -15,8 +15,8 @@ then outputs them sorted by:
 
 **Build & run:**
 ```bash
-gcc firewall.c -o firewall
-./firewall packets.txt
+gcc firewall.c -o firewall       # build the tool
+./firewall firewall_packets.txt  # use the tool
 ```
 
 **Input file format (`packets.txt`):**
