@@ -49,142 +49,134 @@ The system stores records in memory during program execution and can read from o
 ## File Structure
 
 ```txt
-project-folder/
-│
-├── sims.c
-├── students.txt
-├── database_backup.txt
-└── README.md
-Student Data Format
 
-The students.txt file must follow this exact format:
+  ```
 
-FirstName LastName RollNumber CGPA Course1 Course2 Course3 Course4 Course5
+  ----
 
-Example:
+  ## Student Data Format
 
-Billo Doe 101 4.2 10 11 12 13 14
-Amara Smith 102 4.8 10 15 16 17 18
-Emmanuel Okon 103 3.9 11 12 19 20 21
-Precious Nnamdi 104 4.5 10 13 14 22 23
+  The `students.txt` file must follow this exact format (space-separated values):
 
-Each value must be separated by a space.
+  FirstName LastName RollNumber CGPA Course1 Course2 Course3 Course4 Course5
 
-Data Structure Used
-struct sinfo {
+  Example:
+
+  ```txt
+  Billo Doe 101 4.2 10 11 12 13 14
+  Amara Smith 102 4.8 10 15 16 17 18
+  Emmanuel Okon 103 3.9 11 12 19 20 21
+  Precious Nnamdi 104 4.5 10 13 14 22 23
+  ```
+
+  Each value must be separated by a single space; roll numbers must be unique.
+
+  ----
+
+  ## Data Structure Used
+
+  ```c
+  struct sinfo {
     char fname[50];
     char lname[50];
     float cgpa;
     int roll;
     int cid[5];
-};
+  };
+  ```
 
-This structure stores one student record.
+  This structure stores one student record.
 
-How to Compile
+  ----
 
-Open your terminal in the project folder and run:
+  ## How to Compile
 
-gcc sims.c -o sims -Wall -Wextra
+  Open your terminal in the project folder and run:
 
-This creates an executable file named sims.
+  ```bash
+  gcc sims.c -o sims -Wall -Wextra
+  ```
 
-How to Run
+  This creates an executable file named `sims`.
 
-After compiling, run:
+  ## How to Run
 
-./sims
-Menu Options
+  After compiling, run:
 
-When the program runs, the following menu is displayed:
+  ```bash
+  ./sims
+  ```
 
-1. Add Student
-2. Bulk Import
-3. Download All
-4. Find by Roll Number
-5. Find by First Name
-6. Delete by Roll Number
-7. Update by Roll Number
-8. Exit
+  ----
 
-Enter a number from 1 to 8 to perform an action.
+  ## Menu Options
 
-Bulk Import
+  When the program runs, the following menu is displayed:
 
-To import students, create a file named:
+  1. Add Student
+  2. Bulk Import
+  3. Download All
+  4. Find by Roll Number
+  5. Find by First Name
+  6. Delete by Roll Number
+  7. Update by Roll Number
+  8. Exit
 
-students.txt
+  Enter a number from 1 to 8 to perform an action.
 
-Add student records using the required format.
+  ----
 
-Then select option:
+  ## Bulk Import
 
-2. Bulk Import
+  To import students, create a file named `students.txt` using the required format above, then select option 2 (Bulk Import). The program will read the records and store them in memory. Duplicate roll numbers are skipped.
 
-The program will read the records and store them in memory.
+  ## Export / Download All Students
 
-Duplicate roll numbers are skipped.
+  To export all current student records, select option 3 (Download All). The program creates or overwrites `database_backup.txt` with all student records currently in memory.
 
-Export / Download All Students
+  ## Search System
 
-To export all current student records, select:
+  The program supports two search methods:
 
-3. Download All
+  - Search by Roll Number: finds a specific student using their unique roll number.
+  - Search by First Name: finds all students with the matching first name.
 
-The program creates or overwrites:
+  ## Delete System
 
-database_backup.txt
+  Students can be deleted using their roll number. Before deletion, the program asks for confirmation. If confirmed, the student is removed from memory and remaining records are shifted correctly.
 
-All student records currently in memory will be saved there.
+  ## Update System
 
-Search System
+  Students can be updated using their roll number. The program allows updating first name, last name, CGPA, and course IDs. Pressing Enter keeps the previous value unchanged.
 
-The program supports two search methods:
+  ## Important Notes
 
-Search by Roll Number
+  - The program stores data in memory while running.
+  - Imported or manually added records are not permanently saved unless exported.
+  - Always use the correct format in `students.txt`.
+  - Roll numbers should be unique.
+  - The program supports a maximum of 200 students.
 
-Searches for one specific student using their unique roll number.
+  ## Sample Compilation and Execution
 
-Search by First Name
+  ```bash
+  gcc sims.c -o sims -Wall -Wextra
+  ./sims
+  ```
 
-Searches for all students with the matching first name.
+  ## Author
 
-Delete System
+  Chisom
 
-Students can be deleted using their roll number.
+  CPE Hub Week 04 Project — Student Information Management System
 
-Before deletion, the program asks for confirmation.
+  ## License
 
-If confirmed, the student is removed from memory and the remaining records are shifted correctly.
+  This project is for educational purposes.
 
-Update System
+  ----
 
-Students can be updated using their roll number.
-
-The program allows updating:
-
-First name
-Last name
-CGPA
-Course IDs
-
-Pressing Enter keeps the previous value unchanged.
-
-Important Notes
-The program stores data in memory while running.
-Imported or manually added records are not permanently saved unless exported.
-Always use the correct format in students.txt.
-Roll numbers should be unique.
-The program supports a maximum of 200 students.
-Sample Compilation and Execution
-gcc sims.c -o sims -Wall -Wextra
-./sims
-Author
-
-Chisom
-CPE Hub Week 04 Project
-Student Information Management System
-
+  This README matches your project requirements: terminal-based CRUD, `.txt` import/export, strict student data format, and the menu features from the assignment spec.
 License
 
 This project is for educational purposes.
