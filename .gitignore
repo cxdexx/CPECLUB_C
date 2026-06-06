@@ -1,12 +1,1 @@
-# compiled C binaries
-wk_02/cipher
-wk_02/firewall
-wk_02/phonebook
-wk_04/sims
 
-# backup/output files
-database_backup.txt
-
-# general compiled outputs
-*.o
-*.out	
